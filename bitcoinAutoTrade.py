@@ -12,17 +12,20 @@ def get_target_price(ticker, k):
     target_price = df.iloc[0]['close'] + (df.iloc[0]['high'] - df.iloc[0]['low']) * k
     return target_price
 
+
 def get_start_time(ticker):
     """시작 시간 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="day", count=1)
     start_time = df.index[0]
     return start_time
 
+
 def get_ma15(ticker):
     """15일 이동 평균선 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="day", count=15)
     ma15 = df['close'].rolling(15).mean().iloc[-1]
     return ma15
+
 
 def get_balance(ticker):
     """잔고 조회"""
@@ -34,6 +37,7 @@ def get_balance(ticker):
             else:
                 return 0
     return 0
+
 
 def get_current_price(ticker):
     """현재가 조회"""
