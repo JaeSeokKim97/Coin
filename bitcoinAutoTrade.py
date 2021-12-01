@@ -4,8 +4,8 @@ import datetime
 import schedule
 from fbprophet import Prophet
 
-access = "VjWBodSBEqdT5YOrKBxZxTPoiwVBsgM34hk4ze1t"
-secret = "V3KOjp9ZB4x5Wcyas9tyxqpE8vuNDUuWVpZuGxdy"
+access =
+secret =
 
 
 def get_target_price(ticker, k):
@@ -81,7 +81,7 @@ while True:
                     upbit.buy_market_order("KRW-UPP", krw*0.9995)
         else:
             btc = get_balance("UPP")
-            if btc > 0.00008:
+            if btc > 25:
                 upbit.sell_market_order("KRW-UPP", btc*0.9995)
         time.sleep(1)
     except Exception as e:
